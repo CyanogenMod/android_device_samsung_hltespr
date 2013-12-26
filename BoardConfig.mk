@@ -20,15 +20,15 @@
 # definition file).
 #
 
-# inherit from common jf
--include device/samsung/jf-common/BoardConfigCommon.mk
+# inherit from common hlte
+-include device/samsung/hlte-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include vendor/samsung/jfltespr/BoardConfigVendor.mk
+-include vendor/samsung/hltespr/BoardConfigVendor.mk
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := jfltespr
+TARGET_OTA_ASSERT_DEVICE := hltespr
 
 # Kernel
-TARGET_KERNEL_CONFIG    := jf_spr_defconfig
+TARGET_KERNEL_VARIANT_CONFIG    := msm8974_sec_hltespr_defconfig
 

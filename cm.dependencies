@@ -8,12 +8,12 @@
     "target_path": "device/samsung/msm8960-common"
   },
   {
-    "repository": "android_device_samsung_jf-common",
-    "target_path": "device/samsung/jf-common"
+    "repository": "android_device_samsung_hlte-common",
+    "target_path": "device/samsung/hlte-common"
   },
   {
-    "repository": "android_kernel_samsung_jf",
-    "target_path": "kernel/samsung/jf"
+    "repository": "android_kernel_samsung_hlte",
+    "target_path": "kernel/samsung/hlte"
   },
   {
     "repository": "android_hardware_samsung",

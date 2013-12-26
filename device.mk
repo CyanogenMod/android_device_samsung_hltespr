@@ -15,16 +15,16 @@
 #
 
 ## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/jfltespr/jfltespr-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/hltespr/hltespr-vendor.mk)
 
 # Disable MSB for GPS
 NEEDS_GPS_MSB_DISABLED := true
 
 ## overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/jfltespr/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/hltespr/overlay
 
 ## common overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/jf-common/overlay-cdma
+DEVICE_PACKAGE_OVERLAYS += device/samsung/hlte-common/overlay-cdma
 
-# Inherit from jf-common
-$(call inherit-product, device/samsung/jf-common/jf-common.mk)
+# Inherit from hlte-common
+$(call inherit-product, device/samsung/hlte-common/hlte-common.mk)

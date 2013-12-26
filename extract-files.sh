@@ -2,6 +2,6 @@
 
 set -e
 
-export DEVICE=jfltespr
+export DEVICE=hltespr
 export VENDOR=samsung
-./../jf-common/extract-files.sh $@
+./../hlte-common/extract-files.sh $@
