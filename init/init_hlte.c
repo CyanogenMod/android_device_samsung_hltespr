@@ -54,36 +54,29 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.bootloader", bootloader);
 
-    if (strstr(bootloader, "N900W8")) {
-        /* hltecan */
-        gsm_properties();
-        property_set("ro.build.fingerprint", "samsung/hltecan/hlte:4.4.2/KOT49H/N900W8VLUCND5:user/release-keys");
-        property_set("ro.build.description", "hltecan-user 4.4.2 KOT49H N900W8VLUCND5 release-keys");
-        property_set("ro.product.model", "SM-N900W8");
-        property_set("ro.product.device", "hltecan");
-    } else if (strstr(bootloader, "N900T")) {
-        /* hltetmo */
-        gsm_properties();
-        property_set("ro.build.fingerprint", "samsung/hltetmo/hltetmo:4.4.2/KOT49H/N900TUVUCNB4:user/release-keys");
-        property_set("ro.build.description", "hltetmo-user 4.4.2 KOT49H N900TUVUCNB4 release-keys");
-        property_set("ro.product.model", "SM-N900T");
-        property_set("ro.product.device", "hltetmo");
-    } else {
-        /* hltexx */
-        gsm_properties();
-        property_set("ro.build.fingerprint", "samsung/hltexx/hlte:4.4.2/KOT49H/N9005XXUENC2:user/release-keys");
-        property_set("ro.build.description", "hltexx-user 4.4.2 KOT49H N9005XXUENC2 release-keys");
-        property_set("ro.product.model", "SM-N9005");
-        property_set("ro.product.device", "hltexx");
+    if (strstr(bootloader, "N900P")) {
+        /* hltespr */
+        cdma_properties("1");
+        property_set("ro.build.fingerprint", "samsung/hltespr/hltespr:4.4.2/KOT49H/N900PVPUCNAB:user/release-keys");
+        property_set("ro.build.description", "hltespr-user 4.4.2 KOT49H N900PVPUCNAB release-keys");
+        property_set("ro.product.model", "SM-N900P");
+        property_set("ro.product.device", "hltespr");
+        cdma_properties("1", "310120", "Sprint");
     }
+    /* TODO: Add Sprint MVNOs */
+
     property_get("ro.product.device", device);
     strlcpy(devicename, device, sizeof(devicename));
-    ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
+    INFO("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
 }
 
-void gsm_properties()
+void cdma_properties(char cdma_sub[], char op_numeric[], char op_alpha[])
 {
-    property_set("ro.telephony.default_network", "9");
-    property_set("ro.telephony.ril.v3", "newDialCode");
-    property_set("telephony.lteOnGsmDevice", "1");
+    property_set("ril.subscription.types", "NV,RUIM");
+    property_set("ro.cdma.home.operator.numeric", op_numeric);
+    property_set("ro.cdma.home.operator.alpha", op_alpha);
+    property_set("ro.telephony.default_cdma_sub", cdma_sub);
+    property_set("ro.telephony.default_network", "10");
+    property_set("ro.telephony.ril.v3", "newDriverCallU,newDialCode");
+    property_set("telephony.lteOnCdmaDevice", "1");
 }
