@@ -22,5 +22,6 @@ $(call inherit-product-if-exists, vendor/samsung/hltespr/hltespr-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+
 # Common hlte
 $(call inherit-product, device/samsung/hlte-common/hlte.mk)
