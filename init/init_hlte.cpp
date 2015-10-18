@@ -35,7 +35,9 @@
 #include "util.h"
 
 #include "init_msm.h"
-
+// internal header...
+void cdma_properties(char const* cdma_sub, char const* op_numeric, char const* op_alpha);
+//*********************************************************
 void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type)
 {
     char platform[PROP_VALUE_MAX];
@@ -69,7 +71,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     INFO("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
 }
 
-void cdma_properties(char cdma_sub[], char op_numeric[], char op_alpha[])
+void cdma_properties(char const* cdma_sub, char const* op_numeric, char const* op_alpha)
 {
     property_set("ril.subscription.types", "NV,RUIM");
     property_set("ro.cdma.home.operator.numeric", op_numeric);

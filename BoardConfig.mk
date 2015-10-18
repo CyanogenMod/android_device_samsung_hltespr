@@ -19,7 +19,7 @@ TARGET_OTA_ASSERT_DEVICE := SM-N900P,hltespr
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/hltespr/init/init_hlte.c
+TARGET_LIBINIT_DEFINES_FILE := device/samsung/hltespr/init/init_hlte.cpp
 TARGET_UNIFIED_DEVICE := true
 
 # Partitions
